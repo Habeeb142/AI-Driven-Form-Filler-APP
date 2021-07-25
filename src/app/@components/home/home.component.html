@@ -1,0 +1,114 @@
+<div class="parent">
+    <!-- Head -->
+    <div class="welcome_user">
+        <div class="welcome">Hello,</div>
+        <div class="user">Great User</div>
+    </div>
+    <!-- Content -->
+    <div class="tabs" >
+         <div class="what" *ngIf="!startForm">
+            Let's get to know you?
+         </div>
+         <div class="what just-center" *ngIf="startForm">
+            <div mat-ripple (click)="handleStartForm()">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0)">
+                <path d="M15.0383 6.87695C14.9728 6.86632 14.9066 6.86142 14.8403 6.86228H3.55262L3.79875 6.7478C4.03933 6.63393 4.2582 6.47895 4.44556 6.28988L7.6109 3.12453C8.02779 2.72658 8.09783 2.08639 7.7769 1.60769C7.40338 1.09757 6.68706 0.986814 6.17691 1.36034C6.1357 1.39053 6.09652 1.42345 6.05971 1.45886L0.335755 7.18282C-0.111572 7.62965 -0.111966 8.35448 0.334861 8.80181C0.335147 8.80209 0.335469 8.80242 0.335755 8.8027L6.05971 14.5267C6.5074 14.9731 7.23223 14.9721 7.6787 14.5244C7.71383 14.4892 7.74663 14.4517 7.7769 14.4122C8.09783 13.9335 8.02779 13.2933 7.6109 12.8953L4.45128 9.72426C4.28332 9.55612 4.09021 9.41513 3.87888 9.30641L3.53545 9.15186H14.7773C15.3621 9.17358 15.8752 8.76507 15.9851 8.19024C16.0863 7.56615 15.6624 6.97819 15.0383 6.87695Z" fill="#62526D" fill-opacity="0.8"/>
+                </g>
+                <defs>
+                <clipPath id="clip0">
+                <rect width="16" height="16" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>
+            </div>
+            <div>Click the mic to start</div>
+            <div></div>
+         </div>
+         <!-- For loop to display differnt tabs -->
+         <div mat-ripple *ngIf="!startForm" (click)="handleStartForm()" class="animate__animated animate__slideInLeft">
+            <div class="item" *ngFor="let item of items" [style.background]="item?.bgColor" [style.boxShadow]="item?.boxShadow" >
+                {{item?.text}}
+            </div>
+                
+            <div class="image">
+                <img src="assets/form.jpeg" style="width: 100%; opacity: .4;" alt="">
+            </div>
+         </div>
+
+         <div *ngIf="startForm" class="animate__animated animate__slideInRight">
+             <!-- Question 1 -->
+             <div class="question">
+                <div class="question-text">
+                    <div>
+                        • Please tell us your Last Name. 
+                    </div>
+                    <div class="mic" mat-ripple (click)="startRecording('lastName')">
+                        <img src="assets/mic.jpeg" width="40" alt="">
+                    </div>
+                </div>
+                <div class="do-you-mean" *ngIf="!lastNameConfirmed">
+                    Is your Lastname <input type="text" name="lastName" [(ngModel)]="user.lastName" /> ?
+                </div>
+                <div class="do-you-mean" *ngIf="lastNameConfirmed">
+                    Last Name: <span class="capitalize" >{{user.lastName}}</span>
+                </div>
+                 <div class="btn-section" *ngIf="!lastNameConfirmed">
+                     <button mat-button (click)="lastNameConfirmed = true">Yes</button>
+                     <button mat-button (click)="startRecording('lastName')">No, Retry</button>
+                 </div>
+             </div>
+
+             <!-- Question 2 -->
+             <div class="question">
+                <div class="question-text">
+                    <div>
+                        • Please tell us your First Name. 
+                    </div>
+                    <div class="mic" mat-ripple (click)="startRecording('firstName')">
+                        <img src="assets/mic.jpeg" width="40" alt="">
+                    </div>
+                </div>
+                <div class="do-you-mean" *ngIf="!firstNameConfirmed">
+                    Is your Firstname <input type="text" name="firstName" [(ngModel)]="user.firstName" /> ?
+                </div>
+                <div class="do-you-mean" *ngIf="firstNameConfirmed">
+                    First Name: <span style="text-transform: capitalize;">{{user.firstName}}</span> 
+                </div>
+                 <div class="btn-section" *ngIf="!firstNameConfirmed">
+                     <button mat-button (click)="firstNameConfirmed = true">Yes</button>
+                     <button mat-button (click)="startRecording('firstName')">No, Retry</button>
+                 </div>
+             </div>
+
+             <div class="text-center mt-4">
+                 <button mat-button style="background-color: #732CA4; color: aliceblue;" (click)="show()">Submit Form</button>
+             </div>
+         </div>
+    </div>
+
+
+    <div class="modal fade" id="notify" tabindex="-1" role="dialog" aria-labelledby="notifyTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <img src="https://i.pinimg.com/originals/6b/a1/74/6ba174bf48e9b6dc8d8bd19d13c9caa9.gif" height="300" alt="">
+        </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="notify2" tabindex="-1" role="dialog" aria-labelledby="notifyTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="what text-center">Personal Details</div>
+            <div class="p-4">
+                <div class="what" style="font-size: 18px;">Last Name: <strong class="capitalize">{{user.lastName}}</strong> </div>
+                <div class="what" style="font-size: 18px;">First Name: <strong class="capitalize">{{user.firstName}}</strong> </div>
+            </div>
+            <div class="text-center m-2">
+                <button mat-button style="background-color: #732CA4; color: aliceblue;" (click)="close()">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>

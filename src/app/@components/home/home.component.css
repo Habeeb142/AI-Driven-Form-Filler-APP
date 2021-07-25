@@ -1,0 +1,89 @@
+.parent {
+    padding: 2.5rem 0rem 0 0rem;
+    height: 100%;
+}
+.welcome_user {
+    padding: 2rem 1rem;
+}
+.welcome {
+    font-size: 28px;
+    line-height: 40px;
+    color: #62526D;
+}
+.user {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    color: #62526D;    
+}
+.tabs {
+    background: #FFFFFF;
+    box-shadow: 0px -12px 20px rgba(98, 82, 109, 0.2);
+    border-radius: 32px;
+    padding: 2.5rem 1rem;
+    height: 80%;
+    overflow: auto;
+}
+.what {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 40px;
+    color: rgba(98, 82, 109, 0.85);    
+}
+.item {
+    margin-top: 1.5rem;
+    padding: 2.5rem 1rem 1rem 1rem;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;  
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; 
+}
+.image {
+    border: 1px solid #732CA4; 
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.just-center {
+    display: flex;
+    justify-content: space-between;
+}
+.question {
+    margin-top: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+    border-bottom: 1px solid rgba(98, 82, 109, 0.5);;
+}
+.do-you-mean {
+    padding: .8rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 18px;
+}
+.btn-section {
+    text-align: center;
+    margin-top: .5rem;
+}
+button {
+    background-color: rgba(187, 187, 27, 0.459);
+}
+button:first-child {
+    background-color: rgba(73, 175, 73, 0.788);
+    margin-right: 10px;
+}
+input {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+    width: 120px;
+}
+.question-text {
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mic {
+    padding: 2px;
+    border-radius: 10px;
+    background-color: #62526D;
+}
