@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
     setTimeout(() => {
       this.stopRecording()
-    }, 2000);
+    }, 3000);
   }
 
   stopRecording() {
