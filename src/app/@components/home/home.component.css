@@ -87,3 +87,6 @@ input {
     border-radius: 10px;
     background-color: #62526D;
 }
+.capitalize {
+    text-transform: capitalize;
+}
